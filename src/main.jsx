@@ -185,7 +185,7 @@ function App() {
                   I am a mechanical engineering graduate from Western University with professional experience in acoustics and vibration engineering and production engineering. My work has included field investigations, data acquisition, engineering calculations, Python-based analysis tools, 3D simulation models, manufacturing troubleshooting, and technical reporting for multidisciplinary teams.
                 </p>
                 <p>
-                  My academic project experience adds a robotics and controls foundation: FANUC automation, Allen-Bradley PLC integration, autonomous mobile robot design, embedded controls, CAD, 3D printing, laser cutting, and iterative prototype testing. I am interested in applying that mix of practical hardware, analysis, and documentation to robotics and engineering teams like A&K Robotics, Kardium, and Sanctuary AI.
+                  My academic project experience adds a robotics and controls foundation: FANUC automation, Allen-Bradley PLC integration, autonomous mobile robot design, embedded controls, CAD, 3D printing, laser cutting, and iterative prototype testing.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {capabilities.map(({ icon: Icon, label, detail }) => (
