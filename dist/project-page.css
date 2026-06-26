@@ -146,6 +146,25 @@ img {
   aspect-ratio: 16 / 9;
 }
 
+.video-section {
+  margin-top: 18px;
+}
+
+.video-frame {
+  overflow: hidden;
+  border: 1px solid #f3b9d8;
+  border-radius: 8px;
+  background: #241022;
+  box-shadow: 0 18px 55px rgba(255, 47, 146, 0.18);
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 article {
   min-height: 150px;
   border: 1px solid #f3b9d8;

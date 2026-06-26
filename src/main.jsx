@@ -435,7 +435,7 @@ function App() {
                   <Phone size={20} aria-hidden="true" />
                   (705) 440-7473
                 </a>
-                <a className="contact-row" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                <a className="contact-row" href="https://www.linkedin.com/in/april-vissers-849a56207" target="_blank" rel="noreferrer">
                   <ExternalLink size={20} aria-hidden="true" />
                   LinkedIn profile
                 </a>
