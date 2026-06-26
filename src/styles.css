@@ -11,8 +11,8 @@ body {
 }
 
 ::selection {
-  background: #d9efe9;
-  color: #172033;
+  background: #ff2f92;
+  color: #fff;
 }
 
 @layer components {
@@ -60,14 +60,14 @@ body {
   position: relative;
   width: min(78%, 430px);
   aspect-ratio: 1;
-  border: 1px solid #d9e0e8;
+  border: 1px solid #f3b9d8;
   border-radius: 8px;
   background:
-    linear-gradient(#d9e0e8 1px, transparent 1px),
-    linear-gradient(90deg, #d9e0e8 1px, transparent 1px),
+    linear-gradient(#f3b9d8 1px, transparent 1px),
+    linear-gradient(90deg, #f3b9d8 1px, transparent 1px),
     #fff;
   background-size: 42px 42px;
-  box-shadow: inset 0 0 0 12px rgba(247, 249, 251, 0.85);
+  box-shadow: inset 0 0 0 12px rgba(255, 240, 248, 0.9), 0 0 36px rgba(255, 47, 146, 0.18);
 }
 
 .robot-visual::before,
@@ -75,7 +75,7 @@ body {
   content: '';
   position: absolute;
   border-radius: 999px;
-  background: #172033;
+  background: #241022;
 }
 
 .robot-visual::before {
@@ -90,7 +90,7 @@ body {
   bottom: 21%;
   width: 18%;
   height: 18%;
-  background: #1c7c8a;
+  background: #ff2f92;
 }
 
 .rail {
@@ -98,7 +98,7 @@ body {
   left: 11%;
   right: 11%;
   height: 2px;
-  background: #526070;
+  background: #725069;
 }
 
 .rail-one {
@@ -120,7 +120,7 @@ body {
   width: 11%;
   aspect-ratio: 1;
   background: #fff;
-  border: 8px solid #172033;
+  border: 8px solid #241022;
 }
 
 .node-a {
@@ -132,7 +132,7 @@ body {
 .node-b {
   right: 27%;
   top: 42%;
-  border-color: #1c7c8a;
+  border-color: #ff2f92;
   animation: pulse-node 2600ms ease-in-out 500ms infinite;
 }
 
@@ -140,7 +140,7 @@ body {
   position: absolute;
   height: 4%;
   border-radius: 999px;
-  background: #172033;
+  background: #241022;
   transform-origin: left center;
 }
 
@@ -156,7 +156,7 @@ body {
   top: 52%;
   width: 24%;
   transform: rotate(130deg);
-  background: #526070;
+  background: #725069;
 }
 
 .end-effector {
@@ -164,7 +164,7 @@ body {
   bottom: 27%;
   width: 13%;
   aspect-ratio: 1;
-  border: 8px solid #f4b860;
+  border: 8px solid #00c2d1;
   background: #fff;
 }
 
@@ -173,8 +173,8 @@ body {
   top: 56%;
   width: 10%;
   aspect-ratio: 1;
-  background: #f4b860;
-  box-shadow: 0 0 0 12px rgba(244, 184, 96, 0.16);
+  background: #00c2d1;
+  box-shadow: 0 0 0 12px rgba(0, 194, 209, 0.18);
   animation: scan 3000ms ease-in-out infinite;
 }
 

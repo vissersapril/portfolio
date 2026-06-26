@@ -19,6 +19,9 @@ import {
 } from 'lucide-react'
 import './styles.css'
 
+const basePath = import.meta.env.BASE_URL
+const projectPath = (id) => `${basePath}projects/${id}/`
+
 const navItems = ['Home', 'About', 'Projects', 'Resume', 'Contact']
 
 const capabilities = [
@@ -328,7 +331,7 @@ function App() {
               {projects.map((project) => (
                 <a
                   key={project.title}
-                  href={`#/projects/${project.id}`}
+                  href={projectPath(project.id)}
                   className="group rounded-lg border border-line bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-signal/30"
                   aria-label={`Read more about ${project.title}`}
                 >

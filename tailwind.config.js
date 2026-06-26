@@ -4,17 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#172033',
-        steel: '#526070',
-        line: '#d9e0e8',
-        mist: '#f7f9fb',
-        signal: '#1c7c8a',
-        graphite: '#2f3642',
-        mint: '#d9efe9',
-        amber: '#f4b860',
+        ink: '#241022',
+        steel: '#725069',
+        line: '#f3b9d8',
+        mist: '#fff0f8',
+        signal: '#ff2f92',
+        graphite: '#3f2438',
+        mint: '#ffe0f1',
+        amber: '#00c2d1',
       },
       boxShadow: {
-        soft: '0 18px 55px rgba(23, 32, 51, 0.10)',
+        soft: '0 18px 55px rgba(255, 47, 146, 0.18)',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif'],
