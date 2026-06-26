@@ -281,12 +281,12 @@ function App() {
                   <div className="flex flex-col gap-4">
                     <img
                       className="aspect-square w-full rounded-md border border-line bg-mist object-cover"
-                      src={`${basePath}headshot-placeholder.svg`}
-                      alt="April Vissers headshot placeholder"
+                      src={`${basePath}media/headshot.jpg`}
+                      alt="Professional headshot of April Vissers"
                     />
                     <div className="rounded-md bg-ink p-4 text-white">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">Headshot</p>
-                      <p className="mt-2 text-sm leading-6 text-white/75">Replace this with a polished photo when ready.</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">April Vissers</p>
+                      <p className="mt-2 text-sm leading-6 text-white/75">Mechanical engineering, vibration analysis, manufacturing, and robotics.</p>
                     </div>
                   </div>
                 </div>
@@ -383,6 +383,27 @@ function App() {
                 </p>
               </div>
               <div className="space-y-4">
+                <article className="grid gap-5 rounded-lg border border-line bg-white p-5 transition hover:border-signal/40 md:grid-cols-[0.75fr_1.25fr] md:items-center">
+                  <img
+                    className="aspect-[4/3] w-full rounded-md object-cover"
+                    src={`${basePath}media/aercoustics-site.jpg`}
+                    alt="April Vissers on site with vibration monitoring equipment"
+                  />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-signal">Field Work</p>
+                    <h3 className="mt-3 text-lg font-semibold text-ink">On-site acoustics and vibration testing</h3>
+                    <p className="mt-3 text-sm leading-7 text-steel">
+                      Field investigations, data acquisition, vibration analysis, and technical reporting for real project conditions.
+                    </p>
+                    <div className="mt-4 rounded-md bg-mist p-4">
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-signal">Acoustic auralization project</p>
+                      <audio className="w-full" controls preload="none" src={`${basePath}media/kamloops-auralization.wav`}>
+                        Your browser does not support the audio element.
+                      </audio>
+                      <p className="mt-2 text-xs leading-5 text-steel">Headphones recommended.</p>
+                    </div>
+                  </div>
+                </article>
                 {resumeItems.map((item) => (
                   <article key={item.role} className="rounded-lg border border-line bg-white p-6 transition hover:border-signal/40">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
