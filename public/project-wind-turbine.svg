@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Vertical axis wind turbine prototype illustration</title>
+  <desc id="desc">Technical illustration of a vertical axis wind turbine prototype, airflow, and load calculation notes.</desc>
+  <rect width="1200" height="900" fill="#f7f9fb"/>
+  <path d="M145 705h910" stroke="#d9e0e8" stroke-width="8"/>
+  <path d="M540 210v500" stroke="#172033" stroke-width="18" stroke-linecap="round"/>
+  <path d="M660 210v500" stroke="#172033" stroke-width="18" stroke-linecap="round"/>
+  <path d="M540 230c-155 80-155 365 0 445" fill="none" stroke="#1c7c8a" stroke-width="34" stroke-linecap="round"/>
+  <path d="M660 230c155 80 155 365 0 445" fill="none" stroke="#f4b860" stroke-width="34" stroke-linecap="round"/>
+  <path d="M475 705h250l50 80H425z" fill="#172033"/>
+  <path d="M330 260c-90 0-145 30-190 82M355 390c-110 0-180 38-235 96M365 530c-95 0-155 30-210 82" fill="none" stroke="#526070" stroke-width="14" stroke-linecap="round"/>
+  <path d="M815 250h220v170H815z" fill="#fff" stroke="#d9e0e8" stroke-width="6"/>
+  <path d="M850 295h130M850 345h95" stroke="#1c7c8a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M830 515h230v120H830z" fill="#fff" stroke="#d9e0e8" stroke-width="6"/>
+  <path d="M865 555l35 35 55-75 45 65 25-30" fill="none" stroke="#f4b860" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="600" cy="455" r="54" fill="#fff" stroke="#172033" stroke-width="12"/>
+</svg>

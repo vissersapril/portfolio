@@ -2,6 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   ArrowRight,
+  ArrowLeft,
   Bot,
   BrainCircuit,
   CircuitBoard,
@@ -31,6 +32,7 @@ const projects = [
     id: 'robotics-construction-cell',
     title: 'Automated Robotics Construction Cell',
     area: 'Robotics Automation',
+    image: 'project-robotics-cell.svg',
     summary:
       'Programmed robotic automation sequences for autonomous LEGO sorting and assembly, designed custom fixtures and end-of-arm tooling, and integrated a 6-axis FANUC LR Mate cell with Allen-Bradley PLCs.',
     metrics: ['FANUC LR Mate', 'RSLogix 5000', 'Custom EOAT'],
@@ -39,11 +41,14 @@ const projects = [
       'Designed and fabricated custom fixtures and end-of-arm tooling to support repeatable operation.',
       'Integrated Allen-Bradley PLC controls and created process documentation for the robotic cell.',
     ],
+    outcome:
+      'The result was a repeatable robotic workcell concept that combined mechanical fixturing, controls logic, and process documentation into one integrated automation project.',
   },
   {
     id: 'autonomous-collection-robot',
     title: 'Autonomous Collection Robot',
     area: 'Mobile Robotics',
+    image: 'project-collection-robot.svg',
     summary:
       'Designed, built, and tested an autonomous mobile robot in a three-person engineering team, developing ESP32 control software and integrating sensors and actuators over CAN bus and I2C.',
     metrics: ['1st place', 'ESP32', 'SolidWorks'],
@@ -52,11 +57,14 @@ const projects = [
       'Implemented CAN bus and I2C communication for sensor and actuator integration.',
       'Designed and fabricated custom components using SolidWorks, 3D printing, and laser cutting.',
     ],
+    outcome:
+      'The robot earned 1st place in the final autonomous robotics competition after iterative system integration, debugging, and performance optimization.',
   },
   {
     id: 'vertical-axis-wind-turbine',
     title: 'Vertical Axis Wind Turbine Prototype',
     area: 'Mechanical Design',
+    image: 'project-wind-turbine.svg',
     summary:
       'Developed a novel vertical axis wind turbine concept, completed efficiency and load calculations, created detailed SolidWorks models, and fabricated proof-of-concept parts with 3D printing.',
     metrics: ['Load analysis', 'CAD modeling', 'Prototype testing'],
@@ -65,6 +73,8 @@ const projects = [
       'Created detailed SolidWorks models and fabricated prototype components with 3D printing.',
       'Assembled and tested a proof-of-concept prototype through iterative design refinement.',
     ],
+    outcome:
+      'The project translated early design calculations into a physical prototype, connecting mechanical analysis, CAD, fabrication, and hands-on testing.',
   },
 ]
 
@@ -91,10 +101,90 @@ const resumeItems = [
   },
 ]
 
+const getSelectedProject = () => {
+  const id = window.location.hash.replace('#/projects/', '')
+  return projects.find((project) => project.id === id)
+}
+
+function ProjectPage({ project }) {
+  return (
+    <main className="pt-16">
+      <section className="bg-mist">
+        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14">
+          <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#projects">
+            <ArrowLeft size={16} aria-hidden="true" />
+            Back to projects
+          </a>
+
+          <div className="mt-8 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="eyebrow">{project.area}</p>
+              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-ink sm:text-6xl">
+                {project.title}
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-steel">{project.summary}</p>
+              <div className="mt-7 flex flex-wrap gap-2">
+                {project.metrics.map((metric) => (
+                  <span key={metric} className="rounded-md border border-line bg-white px-3 py-1.5 text-xs font-semibold text-graphite">
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-line bg-white p-3 shadow-soft">
+              <img
+                className="aspect-[4/3] w-full rounded-md object-cover"
+                src={`${import.meta.env.BASE_URL}${project.image}`}
+                alt={`${project.title} technical illustration`}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="eyebrow">Project Detail</p>
+            <h2 className="section-title">What this project demonstrates.</h2>
+          </div>
+          <div className="space-y-5">
+            {project.details.map((detail) => (
+              <article key={detail} className="rounded-lg border border-line bg-white p-6">
+                <p className="text-sm leading-7 text-steel">{detail}</p>
+              </article>
+            ))}
+            <article className="rounded-lg bg-ink p-6 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">Outcome</p>
+              <p className="mt-3 text-sm leading-7 text-white/78">{project.outcome}</p>
+            </article>
+            <a className="inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-ink" href="#contact">
+              Ask about this project
+              <MoveRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const [selectedProject, setSelectedProject] = React.useState(getSelectedProject)
 
   const closeMenu = () => setMenuOpen(false)
+
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      setSelectedProject(getSelectedProject())
+      closeMenu()
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   return (
     <div className="min-h-screen bg-white text-ink antialiased">
@@ -140,6 +230,9 @@ function App() {
         )}
       </header>
 
+      {selectedProject ? (
+        <ProjectPage project={selectedProject} />
+      ) : (
       <main>
         <section id="home" className="relative overflow-hidden pt-28 sm:pt-32">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fb_100%)]" />
@@ -235,10 +328,15 @@ function App() {
               {projects.map((project) => (
                 <a
                   key={project.title}
-                  href={`#${project.id}`}
+                  href={`#/projects/${project.id}`}
                   className="group rounded-lg border border-line bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-signal/30"
                   aria-label={`Read more about ${project.title}`}
                 >
+                  <img
+                    className="mb-6 aspect-[4/3] w-full rounded-md object-cover"
+                    src={`${import.meta.env.BASE_URL}${project.image}`}
+                    alt={`${project.title} project illustration`}
+                  />
                   <div className="mb-8 flex items-center justify-between gap-4">
                     <span className="rounded-md bg-mint px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-signal">{project.area}</span>
                     <ExternalLink className="text-steel transition group-hover:text-signal" size={18} aria-hidden="true" />
@@ -253,30 +351,6 @@ function App() {
                     ))}
                   </div>
                 </a>
-              ))}
-            </div>
-            <div className="mt-10 space-y-5">
-              {projects.map((project) => (
-                <article key={project.id} id={project.id} className="scroll-mt-24 rounded-lg border border-line bg-white p-6">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-signal">{project.area}</p>
-                      <h3 className="mt-2 text-2xl font-semibold text-ink">{project.title}</h3>
-                    </div>
-                    <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#contact">
-                      Ask about this project
-                      <MoveRight size={16} aria-hidden="true" />
-                    </a>
-                  </div>
-                  <p className="mt-5 max-w-4xl text-sm leading-7 text-steel">{project.summary}</p>
-                  <ul className="mt-5 grid gap-3 text-sm leading-7 text-steel md:grid-cols-3">
-                    {project.details.map((detail) => (
-                      <li key={detail} className="rounded-md bg-mist p-4">
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
               ))}
             </div>
           </div>
@@ -353,6 +427,7 @@ function App() {
           </div>
         </section>
       </main>
+      )}
 
       <footer className="border-t border-line bg-white px-5 py-8 text-center text-sm text-steel sm:px-8">
         <p>Designed for robotics and advanced engineering teams. Built with React, Vite, and Tailwind CSS.</p>

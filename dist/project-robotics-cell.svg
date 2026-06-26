@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Robotics construction cell illustration</title>
+  <desc id="desc">Technical illustration of a robotic arm, tooling, fixtures, and PLC cabinet.</desc>
+  <rect width="1200" height="900" fill="#f7f9fb"/>
+  <path d="M120 690h960" stroke="#d9e0e8" stroke-width="8"/>
+  <path d="M180 180h840v510H180z" fill="#fff" stroke="#d9e0e8" stroke-width="6"/>
+  <path d="M220 645h220v45H220z" fill="#172033"/>
+  <circle cx="330" cy="590" r="72" fill="#1c7c8a"/>
+  <circle cx="330" cy="590" r="32" fill="#fff"/>
+  <path d="M385 540l170-135" stroke="#172033" stroke-width="48" stroke-linecap="round"/>
+  <circle cx="560" cy="400" r="54" fill="#f4b860"/>
+  <path d="M600 410l190 85" stroke="#526070" stroke-width="38" stroke-linecap="round"/>
+  <circle cx="805" cy="500" r="42" fill="#172033"/>
+  <path d="M840 520l70 60m-65-58l90-10" stroke="#172033" stroke-width="18" stroke-linecap="round"/>
+  <path d="M835 215h175v270H835z" fill="#ffffff" stroke="#526070" stroke-width="8"/>
+  <path d="M870 255h105M870 305h105M870 355h105" stroke="#1c7c8a" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="880" cy="425" r="18" fill="#f4b860"/>
+  <circle cx="935" cy="425" r="18" fill="#1c7c8a"/>
+  <path d="M250 250h185v105H250zm0 150h185v105H250z" fill="#d9efe9" stroke="#1c7c8a" stroke-width="6"/>
+  <path d="M470 620h250" stroke="#d9e0e8" stroke-width="18" stroke-linecap="round"/>
+  <path d="M505 610v-70h180v70" fill="none" stroke="#526070" stroke-width="10"/>
+</svg>
