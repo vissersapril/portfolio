@@ -22,7 +22,14 @@ import './styles.css'
 const basePath = import.meta.env.BASE_URL
 const projectPath = (id) => `${basePath}projects/${id}/`
 
-const navItems = ['Home', 'About', 'Projects', 'Resume', 'Contact']
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Resume', href: '#resume' },
+  { label: 'Interests', href: `${basePath}interests/` },
+  { label: 'Contact', href: '#contact' },
+]
 
 const capabilities = [
   { icon: Bot, label: 'Robotics and controls', detail: 'FANUC automation, PLC logic, ESP32 controls, CAN bus, and I2C integration.' },
@@ -202,8 +209,8 @@ function App() {
 
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
-              <a key={item} className="nav-link" href={`#${item.toLowerCase()}`}>
-                {item}
+              <a key={item.label} className="nav-link" href={item.href}>
+                {item.label}
               </a>
             ))}
           </div>
@@ -225,8 +232,8 @@ function App() {
         {menuOpen && (
           <div className="border-t border-line bg-white px-5 py-3 shadow-soft md:hidden">
             {navItems.map((item) => (
-              <a key={item} className="block rounded-lg px-3 py-3 text-sm font-semibold text-steel hover:bg-mist hover:text-ink" href={`#${item.toLowerCase()}`} onClick={closeMenu}>
-                {item}
+              <a key={item.label} className="block rounded-lg px-3 py-3 text-sm font-semibold text-steel hover:bg-mist hover:text-ink" href={item.href} onClick={closeMenu}>
+                {item.label}
               </a>
             ))}
           </div>
@@ -238,7 +245,7 @@ function App() {
       ) : (
       <main>
         <section id="home" className="relative overflow-hidden pt-28 sm:pt-32">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9fb_100%)]" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#fff7fb_0%,#fff0f8_100%)]" />
           <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-24">
             <div className="animate-rise">
               <p className="mb-5 inline-flex items-center gap-2 rounded-lg border border-line bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
@@ -265,16 +272,22 @@ function App() {
 
             <div className="animate-rise-delay">
               <div className="relative rounded-lg border border-line bg-white p-4 shadow-soft">
-                <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-md bg-mist">
-                  <div className="robot-visual" aria-hidden="true">
-                    <div className="rail rail-one" />
-                    <div className="rail rail-two" />
-                    <div className="node node-a" />
-                    <div className="node node-b" />
-                    <div className="arm arm-one" />
-                    <div className="arm arm-two" />
-                    <div className="end-effector" />
-                    <div className="sensor" />
+                <div className="grid gap-4 sm:grid-cols-[1fr_0.45fr]">
+                  <img
+                    className="aspect-[4/3] w-full rounded-md bg-mist object-cover"
+                    src={`${basePath}resume-systems-hero.svg`}
+                    alt="Technical illustration showing vibration analysis, CAD, Python data, and mechanical testing"
+                  />
+                  <div className="flex flex-col gap-4">
+                    <img
+                      className="aspect-square w-full rounded-md border border-line bg-mist object-cover"
+                      src={`${basePath}headshot-placeholder.svg`}
+                      alt="April Vissers headshot placeholder"
+                    />
+                    <div className="rounded-md bg-ink p-4 text-white">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">Headshot</p>
+                      <p className="mt-2 text-sm leading-6 text-white/75">Replace this with a polished photo when ready.</p>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-4 grid grid-cols-3 gap-3 text-center text-xs font-semibold text-steel">
