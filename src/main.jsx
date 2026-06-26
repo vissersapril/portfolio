@@ -28,25 +28,43 @@ const capabilities = [
 
 const projects = [
   {
+    id: 'robotics-construction-cell',
     title: 'Automated Robotics Construction Cell',
     area: 'Robotics Automation',
     summary:
       'Programmed robotic automation sequences for autonomous LEGO sorting and assembly, designed custom fixtures and end-of-arm tooling, and integrated a 6-axis FANUC LR Mate cell with Allen-Bradley PLCs.',
     metrics: ['FANUC LR Mate', 'RSLogix 5000', 'Custom EOAT'],
+    details: [
+      'Programmed autonomous sorting and assembly sequences for a 6-axis industrial robot.',
+      'Designed and fabricated custom fixtures and end-of-arm tooling to support repeatable operation.',
+      'Integrated Allen-Bradley PLC controls and created process documentation for the robotic cell.',
+    ],
   },
   {
+    id: 'autonomous-collection-robot',
     title: 'Autonomous Collection Robot',
     area: 'Mobile Robotics',
     summary:
       'Designed, built, and tested an autonomous mobile robot in a three-person engineering team, developing ESP32 control software and integrating sensors and actuators over CAN bus and I2C.',
     metrics: ['1st place', 'ESP32', 'SolidWorks'],
+    details: [
+      'Developed embedded control software on an ESP32 for autonomous collection behavior.',
+      'Implemented CAN bus and I2C communication for sensor and actuator integration.',
+      'Designed and fabricated custom components using SolidWorks, 3D printing, and laser cutting.',
+    ],
   },
   {
+    id: 'vertical-axis-wind-turbine',
     title: 'Vertical Axis Wind Turbine Prototype',
     area: 'Mechanical Design',
     summary:
       'Developed a novel vertical axis wind turbine concept, completed efficiency and load calculations, created detailed SolidWorks models, and fabricated proof-of-concept parts with 3D printing.',
     metrics: ['Load analysis', 'CAD modeling', 'Prototype testing'],
+    details: [
+      'Completed efficiency, rotational speed, and component load calculations to guide the design.',
+      'Created detailed SolidWorks models and fabricated prototype components with 3D printing.',
+      'Assembled and tested a proof-of-concept prototype through iterative design refinement.',
+    ],
   },
 ]
 
@@ -215,7 +233,12 @@ function App() {
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {projects.map((project) => (
-                <article key={project.title} className="group rounded-lg border border-line bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                <a
+                  key={project.title}
+                  href={`#${project.id}`}
+                  className="group rounded-lg border border-line bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-signal/30"
+                  aria-label={`Read more about ${project.title}`}
+                >
                   <div className="mb-8 flex items-center justify-between gap-4">
                     <span className="rounded-md bg-mint px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-signal">{project.area}</span>
                     <ExternalLink className="text-steel transition group-hover:text-signal" size={18} aria-hidden="true" />
@@ -229,6 +252,30 @@ function App() {
                       </span>
                     ))}
                   </div>
+                </a>
+              ))}
+            </div>
+            <div className="mt-10 space-y-5">
+              {projects.map((project) => (
+                <article key={project.id} id={project.id} className="scroll-mt-24 rounded-lg border border-line bg-white p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-signal">{project.area}</p>
+                      <h3 className="mt-2 text-2xl font-semibold text-ink">{project.title}</h3>
+                    </div>
+                    <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#contact">
+                      Ask about this project
+                      <MoveRight size={16} aria-hidden="true" />
+                    </a>
+                  </div>
+                  <p className="mt-5 max-w-4xl text-sm leading-7 text-steel">{project.summary}</p>
+                  <ul className="mt-5 grid gap-3 text-sm leading-7 text-steel md:grid-cols-3">
+                    {project.details.map((detail) => (
+                      <li key={detail} className="rounded-md bg-mist p-4">
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
