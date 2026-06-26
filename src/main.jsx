@@ -32,9 +32,9 @@ const navItems = [
 ]
 
 const capabilities = [
-  { icon: Bot, label: 'Robotics and controls', detail: 'FANUC automation, PLC logic, ESP32 controls, CAN bus, and I2C integration.' },
-  { icon: BrainCircuit, label: 'Signal and vibration analysis', detail: 'Python tools for automated signal processing, vibration analysis, and large-scale engineering data.' },
-  { icon: Wrench, label: 'Manufacturing improvement', detail: 'Production troubleshooting, fixture design, workflow optimization, and technical documentation.' },
+  { icon: Bot, label: 'Robotics', detail: 'FANUC, PLCs, ESP32, CAN bus, and I2C.' },
+  { icon: BrainCircuit, label: 'Vibration analysis', detail: 'Field data, signal processing, and Python tooling.' },
+  { icon: Wrench, label: 'Builds', detail: 'Fixtures, prototypes, troubleshooting, and documentation.' },
 ]
 
 const projects = [
@@ -42,49 +42,49 @@ const projects = [
     id: 'robotics-construction-cell',
     title: 'Automated Robotics Construction Cell',
     area: 'Robotics Automation',
-    image: 'project-robotics-cell.svg',
+    image: 'media/project-lego-cell.jpg',
     summary:
-      'Programmed robotic automation sequences for autonomous LEGO sorting and assembly, designed custom fixtures and end-of-arm tooling, and integrated a 6-axis FANUC LR Mate cell with Allen-Bradley PLCs.',
+      'FANUC robot cell for autonomous LEGO sorting and assembly.',
     metrics: ['FANUC LR Mate', 'RSLogix 5000', 'Custom EOAT'],
     details: [
-      'Programmed autonomous sorting and assembly sequences for a 6-axis industrial robot.',
-      'Designed and fabricated custom fixtures and end-of-arm tooling to support repeatable operation.',
-      'Integrated Allen-Bradley PLC controls and created process documentation for the robotic cell.',
+      'Programmed autonomous sorting and assembly sequences.',
+      'Designed custom fixtures and end-of-arm tooling.',
+      'Integrated Allen-Bradley PLC controls and documentation.',
     ],
     outcome:
-      'The result was a repeatable robotic workcell concept that combined mechanical fixturing, controls logic, and process documentation into one integrated automation project.',
+      'A repeatable workcell concept combining tooling, controls, and process planning.',
   },
   {
     id: 'autonomous-collection-robot',
     title: 'Autonomous Collection Robot',
     area: 'Mobile Robotics',
-    image: 'project-collection-robot.svg',
+    image: 'media/project-autonomous-car.jpg',
     summary:
-      'Designed, built, and tested an autonomous mobile robot in a three-person engineering team, developing ESP32 control software and integrating sensors and actuators over CAN bus and I2C.',
+      'Competition robot with embedded controls, sensors, and custom fabricated parts.',
     metrics: ['1st place', 'ESP32', 'SolidWorks'],
     details: [
-      'Developed embedded control software on an ESP32 for autonomous collection behavior.',
-      'Implemented CAN bus and I2C communication for sensor and actuator integration.',
-      'Designed and fabricated custom components using SolidWorks, 3D printing, and laser cutting.',
+      'Built ESP32 control software for autonomous collection.',
+      'Integrated sensors and actuators over CAN bus and I2C.',
+      'Fabricated custom parts with CAD, 3D printing, and laser cutting.',
     ],
     outcome:
-      'The robot earned 1st place in the final autonomous robotics competition after iterative system integration, debugging, and performance optimization.',
+      'Earned 1st place after iterative integration, debugging, and testing.',
   },
   {
     id: 'vertical-axis-wind-turbine',
     title: 'Vertical Axis Wind Turbine Prototype',
     area: 'Mechanical Design',
-    image: 'project-wind-turbine.svg',
+    image: 'media/project-wind-turbine-build.jpg',
     summary:
-      'Developed a novel vertical axis wind turbine concept, completed efficiency and load calculations, created detailed SolidWorks models, and fabricated proof-of-concept parts with 3D printing.',
+      'Vertical axis turbine prototype built from calculations, CAD, fabrication, and testing.',
     metrics: ['Load analysis', 'CAD modeling', 'Prototype testing'],
     details: [
-      'Completed efficiency, rotational speed, and component load calculations to guide the design.',
-      'Created detailed SolidWorks models and fabricated prototype components with 3D printing.',
-      'Assembled and tested a proof-of-concept prototype through iterative design refinement.',
+      'Completed speed, efficiency, and load calculations.',
+      'Modeled and fabricated prototype components.',
+      'Presented and tested the full proof-of-concept system.',
     ],
     outcome:
-      'The project translated early design calculations into a physical prototype, connecting mechanical analysis, CAD, fabrication, and hands-on testing.',
+      'A physical prototype connecting analysis, fabrication, and presentation.',
   },
 ]
 
@@ -92,22 +92,22 @@ const resumeItems = [
   {
     period: '2024 - 2026',
     role: 'Acoustics and Vibration Engineer, Aercoustics Engineering',
-    detail: 'Delivered acoustics and vibration projects across residential, commercial, institutional, and transit developments. Built Python tools for signal processing and vibration analysis, prepared technical reports and calculations, and developed mitigation strategies for sensitive equipment installations including an MRI facility with vibration levels exceeding criteria by 30x.',
+    detail: 'Field testing, vibration analysis, Python tools, technical reports, and mitigation strategies for sensitive equipment and building projects.',
   },
   {
     period: '2023 - 2024',
     role: 'Production Engineering Intern, Paradigm Electronics',
-    detail: 'Supported loudspeaker manufacturing process development, product testing, root-cause investigations, tooling improvements, and lean manufacturing initiatives. Redesigned a baffle painting process, increasing productivity by over 40% and reducing annual operating costs by approximately $9,000.',
+    detail: 'Manufacturing troubleshooting, product testing, tooling improvements, and process redesign that improved productivity by over 40%.',
   },
   {
     period: '2019 - 2024',
     role: 'Bachelor of Engineering Science, Western University',
-    detail: "Mechanical and Materials Engineering graduate on the Dean's Honour List from 2019 to 2024 and recipient of the Western Continuing Admission Scholarship.",
+    detail: "Mechanical and Materials Engineering. Dean's Honour List and Western Continuing Admission Scholarship.",
   },
   {
     period: 'Core Toolkit',
     role: 'Engineering Stack',
-    detail: 'SolidWorks, Onshape, Rhinoceros 3D, Python, Java, RSLogix 5000, PLC programming, signal processing, vibration analysis, microcontroller programming, prototype development, root-cause analysis, and manufacturing process improvement.',
+    detail: 'SolidWorks, Onshape, Python, Java, RSLogix 5000, PLCs, signal processing, vibration analysis, prototyping, and root-cause analysis.',
   },
 ]
 
@@ -256,7 +256,7 @@ function App() {
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-steel">
                 I bring field-tested acoustics and vibration experience, manufacturing engineering judgment, and hands-on
-                robotics project work to teams building reliable automation, mobility, and advanced hardware systems.
+                robotics work to teams building reliable hardware.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-signal" href="#projects">
@@ -309,10 +309,10 @@ function App() {
               </div>
               <div className="space-y-6 text-base leading-8 text-steel">
                 <p>
-                  I am a mechanical engineering graduate from Western University with professional experience in acoustics and vibration engineering and production engineering. My work has included field investigations, data acquisition, engineering calculations, Python-based analysis tools, 3D simulation models, manufacturing troubleshooting, and technical reporting for multidisciplinary teams.
+                  I am a mechanical engineering graduate with experience in field testing, vibration analysis, manufacturing, and hands-on robotics.
                 </p>
                 <p>
-                  My academic project experience adds a robotics and controls foundation: FANUC automation, Allen-Bradley PLC integration, autonomous mobile robot design, embedded controls, CAD, 3D printing, laser cutting, and iterative prototype testing.
+                  I like work that mixes analysis with real hardware: sensors, fixtures, CAD, controls, prototypes, and clean technical communication.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {capabilities.map(({ icon: Icon, label, detail }) => (
@@ -379,7 +379,7 @@ function App() {
                 <p className="eyebrow">Resume</p>
                 <h2 className="section-title">Experience across vibration analysis, manufacturing, and robotics projects.</h2>
                 <p className="mt-5 text-base leading-8 text-steel">
-                  A focused snapshot of roles, education, and technical strengths for engineering hiring teams reviewing mechanical, robotics, automation, or product development candidates.
+                  A quick scan of roles, education, and technical strengths.
                 </p>
               </div>
               <div className="space-y-4">
@@ -393,15 +393,8 @@ function App() {
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-signal">Field Work</p>
                     <h3 className="mt-3 text-lg font-semibold text-ink">On-site acoustics and vibration testing</h3>
                     <p className="mt-3 text-sm leading-7 text-steel">
-                      Field investigations, data acquisition, vibration analysis, and technical reporting for real project conditions.
+                      Data acquisition, vibration analysis, and site-ready engineering judgment.
                     </p>
-                    <div className="mt-4 rounded-md bg-mist p-4">
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-signal">Acoustic auralization project</p>
-                      <audio className="w-full" controls preload="none" src={`${basePath}media/kamloops-auralization.wav`}>
-                        Your browser does not support the audio element.
-                      </audio>
-                      <p className="mt-2 text-xs leading-5 text-steel">Headphones recommended.</p>
-                    </div>
                   </div>
                 </article>
                 {resumeItems.map((item) => (

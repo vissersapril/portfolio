@@ -17,7 +17,7 @@ export default {
         soft: '0 18px 55px rgba(255, 47, 146, 0.18)',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif'],
+        sans: ['Aptos', 'Trebuchet MS', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif'],
       },
     },
   },
