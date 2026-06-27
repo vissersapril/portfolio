@@ -4,20 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#241022',
-        steel: '#725069',
-        line: '#f3b9d8',
-        mist: '#fff0f8',
-        signal: '#ff2f92',
-        graphite: '#3f2438',
-        mint: '#ffe0f1',
-        amber: '#00c2d1',
+        ink: '#2C2C31',
+        steel: '#6B7280',
+        line: '#eadfdc',
+        mist: '#FAF8F6',
+        signal: '#D97998',
+        graphite: '#404045',
+        mint: '#EFF5EA',
+        amber: '#93A889',
+        accent: '#F6D4DD',
       },
       boxShadow: {
-        soft: '0 18px 55px rgba(255, 47, 146, 0.18)',
+        soft: '0 16px 48px rgba(44, 44, 49, 0.08)',
       },
       fontFamily: {
-        sans: ['Aptos', 'Trebuchet MS', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif'],
+        sans: ['Inter', 'Aptos', 'Segoe UI', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },

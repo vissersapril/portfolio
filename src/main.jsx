@@ -5,9 +5,10 @@ import {
   ArrowLeft,
   Bot,
   BrainCircuit,
-  CircuitBoard,
   Download,
   ExternalLink,
+  FileText,
+  Linkedin,
   Mail,
   MapPin,
   Menu,
@@ -20,7 +21,9 @@ import {
 import './styles.css'
 
 const basePath = import.meta.env.BASE_URL
-const projectPath = (id) => `${basePath}projects/${id}/`
+const resumeUrl = `${basePath}resume.pdf`
+const linkedInUrl = 'https://www.linkedin.com/in/april-vissers-849a56207'
+const projectPath = (id) => `#/projects/${id}`
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -51,6 +54,10 @@ const projects = [
       'Designed custom fixtures and end-of-arm tooling.',
       'Integrated Allen-Bradley PLC controls and documentation.',
     ],
+    video: {
+      title: 'Automated Robotics Construction Cell video',
+      embedUrl: 'https://www.youtube.com/embed/YPM7E_tSKgI?autoplay=1&mute=1&loop=1&playlist=YPM7E_tSKgI&playsinline=1&rel=0',
+    },
     outcome:
       'A repeatable workcell concept combining tooling, controls, and process planning.',
   },
@@ -75,6 +82,7 @@ const projects = [
     title: 'Vertical Axis Wind Turbine Prototype',
     area: 'Mechanical Design',
     image: 'media/project-wind-turbine-build.jpg',
+    imagePosition: '58% 68%',
     summary:
       'Vertical axis turbine prototype built from calculations, CAD, fabrication, and testing.',
     metrics: ['Load analysis', 'CAD modeling', 'Prototype testing'],
@@ -83,8 +91,66 @@ const projects = [
       'Modeled and fabricated prototype components.',
       'Presented and tested the full proof-of-concept system.',
     ],
+    gallery: [
+      {
+        src: 'media/project-wind-turbine-presentation.jpg',
+        alt: 'Vertical axis wind turbine project team presentation',
+      },
+    ],
     outcome:
       'A physical prototype connecting analysis, fabrication, and presentation.',
+  },
+  {
+    id: 'vancouver-theatre-vibrations',
+    title: 'Vancouver Theatre Vibration Study',
+    area: 'Structural Vibration',
+    image: 'media/project-theatre-vibration.jpg',
+    summary:
+      'Balcony vibration investigation after complaints of perceptible movement during a live concert.',
+    metrics: ['Natural frequency', 'Event correlation', 'TMD concept'],
+    details: [
+      'Measured and assessed the balcony response to determine the natural frequency of the structure.',
+      'Compared the measured frequency with the tempo range of the concert set list and found it aligned with the beat of several popular Three Doors Down songs from the event.',
+      'Prepared preliminary tuned mass damper recommendations to reduce perceptible response during rhythmic crowd and music excitation.',
+    ],
+    outcome:
+      'Identified a plausible resonance mechanism and provided early mitigation direction for future event comfort and serviceability.',
+  },
+  {
+    id: 'theatre-acoustic-reflector-design',
+    title: 'Theatre Acoustic Reflector Design',
+    area: 'Architectural Acoustics',
+    image: 'media/project-theatre-design.jpg',
+    imagePosition: '50% 58%',
+    summary:
+      'Acoustic reflector geometry studies for performance spaces, using 3D modelling and image-source analysis to shape useful early reflections.',
+    metrics: ['3D modelling', 'Image-source mapping', 'Geometry optimization'],
+    details: [
+      'Built and adjusted 3D theatre models to study how ceiling and wall reflector geometry directed acoustic energy across audience areas.',
+      'Used image-source reflection mapping to evaluate timing, coverage, and reflection paths, then tuned geometric parameters to improve useful early energy.',
+      'Wrote small scripts to test reflector angles and identify configurations that sent sound toward target seating zones within the desired timing window.',
+      'Contributed modelling and analysis support for new Kamloops Performing Arts Centre work and University of Alberta Convocation Hall renovation studies.',
+    ],
+    outcome:
+      'Translated acoustic design goals into modelled geometry choices, helping performance spaces balance clarity, coverage, and architectural constraints.',
+  },
+  {
+    id: 'hospital-mri-vibration-investigation',
+    title: 'New Hospital MRI Vibration Investigation',
+    area: 'Sensitive Equipment Isolation',
+    image: 'media/project-mri-vibration.jpg',
+    summary:
+      'Low-frequency vibration investigation and isolation concept for an MRI suite affected by saturated soil conditions.',
+    metrics: ['5 Hz octave band', 'LS-DYNA modelling', '0.8 Hz isolators'],
+    details: [
+      'Investigated elevated low-frequency vibration levels driven by water-saturated soil and efficient Rayleigh wave propagation.',
+      'Predicted minimal attenuation through the structure, then supported LS-DYNA dynamic modelling and validation against soil and on-slab measurements.',
+      'Designed a recessed-slab isolator system with a 0.8 Hz natural frequency to provide significant reduction at the MRI location.',
+      'Analyzed settling time and rocking modes so the isolation system would not create comfort or usability issues for staff, patients, or equipment users.',
+      'Coordinated with technical teams on space requirements, shielding constraints, and integration around the MRI installation.',
+    ],
+    outcome:
+      'Delivered a practical vibration isolation strategy for sensitive imaging equipment in a challenging soil-structure environment.',
   },
 ]
 
@@ -129,7 +195,7 @@ function ProjectPage({ project }) {
           <div className="mt-8 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="eyebrow">{project.area}</p>
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-ink sm:text-6xl">
+              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
                 {project.title}
               </h1>
               <p className="mt-6 text-lg leading-8 text-steel">{project.summary}</p>
@@ -147,6 +213,7 @@ function ProjectPage({ project }) {
                 className="aspect-[4/3] w-full rounded-md object-cover"
                 src={`${import.meta.env.BASE_URL}${project.image}`}
                 alt={`${project.title} technical illustration`}
+                style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
               />
             </div>
           </div>
@@ -165,6 +232,32 @@ function ProjectPage({ project }) {
                 <p className="text-sm leading-7 text-steel">{detail}</p>
               </article>
             ))}
+            {project.video && (
+              <article className="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+                <div className="aspect-video w-full bg-mist">
+                  <iframe
+                    className="h-full w-full"
+                    src={project.video.embedUrl}
+                    title={project.video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </article>
+            )}
+            {project.gallery && (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {project.gallery.map((item) => (
+                  <article key={item.src} className="rounded-lg border border-line bg-white p-4">
+                    <img
+                      className="aspect-[4/3] w-full rounded-md object-cover"
+                      src={`${basePath}${item.src}`}
+                      alt={item.alt}
+                    />
+                  </article>
+                ))}
+              </div>
+            )}
             <article className="rounded-lg bg-ink p-6 text-white">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">Outcome</p>
               <p className="mt-3 text-sm leading-7 text-white/78">{project.outcome}</p>
@@ -197,14 +290,11 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-ink antialiased">
+    <div className="min-h-screen bg-mist text-ink antialiased">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-white/88 backdrop-blur-xl">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#home" className="group flex items-center gap-3" onClick={closeMenu} aria-label="Home">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-ink text-white transition group-hover:bg-signal">
-              <CircuitBoard size={18} aria-hidden="true" />
-            </span>
-            <span className="text-sm font-semibold tracking-wide">APRIL VISSERS</span>
+          <a href="#home" className="text-sm font-semibold text-signal transition hover:text-ink" onClick={closeMenu} aria-label="Home">
+            April Vissers
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -215,10 +305,14 @@ function App() {
             ))}
           </div>
 
-          <a className="hidden items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-signal md:flex" href="#contact">
-            <Mail size={16} aria-hidden="true" />
-            Contact
-          </a>
+          <div className="hidden items-center gap-2 md:flex">
+            <a className="icon-link" href={resumeUrl} target="_blank" rel="noreferrer" aria-label="Open resume PDF">
+              <FileText size={18} aria-hidden="true" />
+            </a>
+            <a className="icon-link" href={linkedInUrl} target="_blank" rel="noreferrer" aria-label="Open LinkedIn profile">
+              <Linkedin size={18} aria-hidden="true" />
+            </a>
+          </div>
 
           <button
             className="grid h-10 w-10 place-items-center rounded-lg border border-line text-ink md:hidden"
@@ -236,6 +330,16 @@ function App() {
                 {item.label}
               </a>
             ))}
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <a className="inline-flex items-center justify-center gap-2 rounded-lg border border-line px-3 py-3 text-sm font-semibold text-ink hover:border-signal hover:text-signal" href={resumeUrl} target="_blank" rel="noreferrer" onClick={closeMenu}>
+                <FileText size={16} aria-hidden="true" />
+                PDF
+              </a>
+              <a className="inline-flex items-center justify-center gap-2 rounded-lg border border-line px-3 py-3 text-sm font-semibold text-ink hover:border-signal hover:text-signal" href={linkedInUrl} target="_blank" rel="noreferrer" onClick={closeMenu}>
+                <Linkedin size={16} aria-hidden="true" />
+                LinkedIn
+              </a>
+            </div>
           </div>
         )}
       </header>
@@ -245,47 +349,37 @@ function App() {
       ) : (
       <main>
         <section id="home" className="relative overflow-hidden pt-28 sm:pt-32">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#fff7fb_0%,#fff0f8_100%)]" />
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-24">
+          <div className="absolute inset-0 -z-10 bg-mist" />
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-16 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:pb-20">
             <div className="animate-rise">
-              <p className="mb-5 inline-flex items-center gap-2 rounded-lg border border-line bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-signal">
-                Mechanical Engineering / Robotics / Vibration Analysis
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-signal">
+                Mechanical engineer
               </p>
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.03] tracking-normal text-ink sm:text-6xl lg:text-7xl">
-                Mechanical engineer building practical systems from analysis to tested hardware.
+              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.12] tracking-normal text-ink sm:text-5xl lg:text-[3.5rem]">
+                Engineering practical systems that make an <span className="text-signal">impact</span>.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-steel">
-                I bring field-tested acoustics and vibration experience, manufacturing engineering judgment, and hands-on
-                robotics work to teams building reliable hardware.
+              <p className="mt-6 max-w-xl text-base leading-7 text-steel">
+                I work across vibration, acoustics, robotics, and hardware builds, turning analysis into tested systems.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-signal" href="#projects">
-                  View Projects
+                  View projects
                   <ArrowRight size={17} aria-hidden="true" />
                 </a>
-                <a className="inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-signal hover:text-signal" href="#resume">
+                <a className="inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-signal hover:text-signal" href={resumeUrl} target="_blank" rel="noreferrer">
                   <Download size={17} aria-hidden="true" />
-                  Resume Snapshot
+                  Resume PDF
                 </a>
               </div>
             </div>
 
             <div className="animate-rise-delay">
-              <div className="relative overflow-hidden rounded-lg border border-line bg-white p-4 shadow-soft">
+              <div className="relative overflow-hidden rounded-lg border border-line bg-white p-3 shadow-soft">
                 <img
                   className="aspect-[4/5] w-full rounded-md bg-mist object-cover object-[50%_28%]"
                   src={`${basePath}media/headshot.jpg`}
                   alt="Professional headshot of April Vissers"
                 />
-                <div className="mt-4 rounded-md bg-ink p-4 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">April Vissers</p>
-                  <p className="mt-2 text-sm leading-6 text-white/75">Mechanical engineering. Vibration analysis. Hardware builds.</p>
-                </div>
-                <div className="mt-4 grid grid-cols-3 gap-3 text-center text-xs font-semibold text-steel">
-                  <span className="rounded-md bg-mist px-2 py-3">CAD</span>
-                  <span className="rounded-md bg-mist px-2 py-3">Python</span>
-                  <span className="rounded-md bg-mist px-2 py-3">Testing</span>
-                </div>
               </div>
             </div>
           </div>
@@ -324,7 +418,7 @@ function App() {
             <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
               <div>
                 <p className="eyebrow">Projects</p>
-                <h2 className="section-title max-w-3xl">Selected robotics, controls, and mechanical design projects.</h2>
+                <h2 className="section-title max-w-3xl">Selected acoustics, vibration, robotics, and mechanical design projects.</h2>
               </div>
               <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#contact">
                 Discuss a project
@@ -343,12 +437,13 @@ function App() {
                     className="mb-6 aspect-[4/3] w-full rounded-md object-cover"
                     src={`${import.meta.env.BASE_URL}${project.image}`}
                     alt={`${project.title} project illustration`}
+                    style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
                   />
                   <div className="mb-8 flex items-center justify-between gap-4">
                     <span className="rounded-md bg-mint px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-signal">{project.area}</span>
                     <ExternalLink className="text-steel transition group-hover:text-signal" size={18} aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold text-ink">{project.title}</h3>
+                  <h3 className="text-lg font-semibold leading-6 text-ink">{project.title}</h3>
                   <p className="mt-4 min-h-28 text-sm leading-7 text-steel">{project.summary}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project.metrics.map((metric) => (
@@ -372,22 +467,12 @@ function App() {
                 <p className="mt-5 text-base leading-8 text-steel">
                   A quick scan of roles, education, and technical strengths.
                 </p>
+                <a className="mt-6 inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-ink" href={resumeUrl} target="_blank" rel="noreferrer">
+                  <FileText size={17} aria-hidden="true" />
+                  Open full resume
+                </a>
               </div>
               <div className="space-y-4">
-                <article className="grid gap-5 rounded-lg border border-line bg-white p-5 transition hover:border-signal/40 md:grid-cols-[0.75fr_1.25fr] md:items-center">
-                  <img
-                    className="aspect-[4/3] w-full rounded-md object-cover"
-                    src={`${basePath}media/aercoustics-site.jpg`}
-                    alt="April Vissers on site with vibration monitoring equipment"
-                  />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-signal">Field Work</p>
-                    <h3 className="mt-3 text-lg font-semibold text-ink">On-site acoustics and vibration testing</h3>
-                    <p className="mt-3 text-sm leading-7 text-steel">
-                      Data acquisition, vibration analysis, and site-ready engineering judgment.
-                    </p>
-                  </div>
-                </article>
                 {resumeItems.map((item) => (
                   <article key={item.role} className="rounded-lg border border-line bg-white p-6 transition hover:border-signal/40">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -409,6 +494,20 @@ function App() {
                     <p className="mt-3 text-sm leading-7 text-steel">Strong signal processing, vibration analysis, engineering data analysis, technical documentation, and root-cause investigation habits.</p>
                   </div>
                 </div>
+                <article className="grid gap-5 rounded-lg border border-line bg-white p-5 transition hover:border-signal/40 md:grid-cols-[0.75fr_1.25fr] md:items-center">
+                  <img
+                    className="aspect-[4/3] w-full rounded-md object-cover"
+                    src={`${basePath}media/aercoustics-site.jpg`}
+                    alt="April Vissers on site with vibration monitoring equipment"
+                  />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-signal">Field Work</p>
+                    <h3 className="mt-3 text-lg font-semibold text-ink">On-site acoustics and vibration testing</h3>
+                    <p className="mt-3 text-sm leading-7 text-steel">
+                      Data acquisition, vibration analysis, and site-ready engineering judgment.
+                    </p>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
@@ -435,8 +534,8 @@ function App() {
                   <Phone size={20} aria-hidden="true" />
                   (705) 440-7473
                 </a>
-                <a className="contact-row" href="https://www.linkedin.com/in/april-vissers-849a56207" target="_blank" rel="noreferrer">
-                  <ExternalLink size={20} aria-hidden="true" />
+                <a className="contact-row" href={linkedInUrl} target="_blank" rel="noreferrer">
+                  <Linkedin size={20} aria-hidden="true" />
                   LinkedIn profile
                 </a>
                 <p className="contact-row">
