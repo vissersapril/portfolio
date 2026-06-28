@@ -101,6 +101,7 @@ h1 {
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: start;
   gap: 18px;
   margin-top: 42px;
 }
