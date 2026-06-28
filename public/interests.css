@@ -130,10 +130,15 @@ h1 {
   grid-column: span 2;
 }
 
-.ski video {
+.ski video,
+.mtbike video {
   aspect-ratio: 16 / 9;
   min-height: 360px;
   background: #2c2c31;
+}
+
+.mtbike {
+  grid-column: span 2;
 }
 
 @media (max-width: 900px) {
@@ -151,11 +156,13 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .ski {
+  .ski,
+  .mtbike {
     grid-column: span 1;
   }
 
-  .ski video {
+  .ski video,
+  .mtbike video {
     min-height: 240px;
   }
 }
