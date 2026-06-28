@@ -67,7 +67,7 @@ const projects = [
     area: 'Mobile Robotics',
     image: 'media/project-autonomous-car.jpg',
     summary:
-      'Competition robot with embedded controls, sensors, and custom fabricated parts.',
+      'Autonomous robot with embedded controls, sensors, and custom fabricated parts.',
     metrics: ['1st place', 'ESP32', 'SolidWorks'],
     details: [
       'Built ESP32 control software for autonomous collection.',
@@ -89,7 +89,7 @@ const projects = [
     details: [
       'Completed speed, efficiency, and load calculations.',
       'Modeled and fabricated prototype components.',
-      'Presented and tested the full proof-of-concept system.',
+      'Presented and tested the full proof-of-concept system for industry client.',
     ],
     gallery: [
       {
@@ -102,7 +102,7 @@ const projects = [
   },
   {
     id: 'vancouver-theatre-vibrations',
-    title: 'Vancouver Theatre Vibration Study',
+    title: 'Theatre Balcony Vibration Study',
     area: 'Structural Vibration',
     image: 'media/project-theatre-vibration.jpg',
     summary:
@@ -110,25 +110,59 @@ const projects = [
     metrics: ['Natural frequency', 'Event correlation', 'TMD concept'],
     details: [
       'Measured and assessed the balcony response to determine the natural frequency of the structure.',
-      'Compared the measured frequency with the tempo range of the concert set list and found it aligned with the beat of several popular Three Doors Down songs from the event.',
+      'Compared the measured frequency with the tempo range of the concert set list and found it aligned with the beat of several popular songs from the event.',
       'Prepared preliminary tuned mass damper recommendations to reduce perceptible response during rhythmic crowd and music excitation.',
     ],
     outcome:
-      'Identified a plausible resonance mechanism and provided early mitigation direction for future event comfort and serviceability.',
+      'Identified a plausible resonance mechanism and provided early mitigation direction for future venue upgrades.',
+  },
+  {
+    id: 'collaborative-robot-buffing-cell',
+    title: 'Collaborative Robot Buffing Cell',
+    area: 'Manufacturing Automation',
+    image: 'media/project-cobot-buffing-cell.svg',
+    summary:
+      'Collaborative robot workcell implementation for automating a cabinet buffing process in speaker manufacturing.',
+    metrics: ['Cobot integration', 'Fixture planning', 'Process validation'],
+    details: [
+      'Supported procurement and installation of a collaborative robot used to automate cabinet buffing operations.',
+      'Coordinated project files, progress tracking, weekly updates, and deadline follow-up across production, maintenance, and external teams.',
+      'Contributed to layout planning, robot and cabinet fixture concepts, worker process flow, part movement, and safety considerations.',
+      'Helped organize robot installation, setup, programming support, and validation of the planned buffing process after arrival.',
+    ],
+    outcome:
+      'Helped bring one of the company’s early automation workcells into operation while balancing productivity, quality, safety, and worker adoption concerns.',
+  },
+  {
+    id: 'custom-soundbar-assembly-line',
+    title: 'Custom Soundbar Assembly Line Design',
+    area: 'Production System Design',
+    image: 'media/project-soundbar-assembly-line.svg',
+    summary:
+      'Production layout and assembly process design for a made-to-order soundbar product launch.',
+    metrics: ['Floor layout', 'Assembly fixtures', 'Work instructions'],
+    details: [
+      'Designed the production floor plan and workflow for a new bespoke soundbar product with tight launch timing.',
+      'Planned tools, racking, workspaces, and part flow while coordinating with design, assembly, maintenance, and management teams.',
+      'Supported pre-production runs by documenting assembly steps and identifying design-for-assembly improvements.',
+      'Created supporting processes and tooling concepts, including machined-part cleaning, MDF grill routing jigs, and fixtures for accurate grill and end-cap installation.',
+    ],
+    outcome:
+      'Established a practical assembly process for a new product launch, connecting design intent with production-ready tooling, documentation, and workflow.',
   },
   {
     id: 'theatre-acoustic-reflector-design',
-    title: 'Theatre Acoustic Reflector Design',
+    title: 'Performing Arts Theatre Design',
     area: 'Architectural Acoustics',
     image: 'media/project-theatre-design.jpg',
     imagePosition: '50% 58%',
     summary:
-      'Acoustic reflector geometry studies for performance spaces, using 3D modelling and image-source analysis to shape useful early reflections.',
+      'Acoustic modelling studies for performance spaces, using 3D modelling and image-source analysis to control acoustic reflections.',
     metrics: ['3D modelling', 'Image-source mapping', 'Geometry optimization'],
     details: [
-      'Built and adjusted 3D theatre models to study how ceiling and wall reflector geometry directed acoustic energy across audience areas.',
+      'Built and adjusted 3D theatre models to study how reflector and diffuser geometry directed acoustic energy across audience areas.',
       'Used image-source reflection mapping to evaluate timing, coverage, and reflection paths, then tuned geometric parameters to improve useful early energy.',
-      'Wrote small scripts to test reflector angles and identify configurations that sent sound toward target seating zones within the desired timing window.',
+      'Wrote scripts to test reflector angles and identify configurations that sent sound toward target seating zones within the desired timing window.',
       'Contributed modelling and analysis support for new Kamloops Performing Arts Centre work and University of Alberta Convocation Hall renovation studies.',
     ],
     outcome:
@@ -140,12 +174,12 @@ const projects = [
     area: 'Sensitive Equipment Isolation',
     image: 'media/project-mri-vibration.jpg',
     summary:
-      'Low-frequency vibration investigation and isolation concept for an MRI suite affected by saturated soil conditions.',
-    metrics: ['5 Hz octave band', 'LS-DYNA modelling', '0.8 Hz isolators'],
+      'Low-frequency vibration investigation and isolation concept for an MRI suite affected by elevated low-frequency vibration levels.',
+    metrics: ['Low frequency vibration', 'LS-DYNA modelling', 'Spring isolators'],
     details: [
-      'Investigated elevated low-frequency vibration levels driven by water-saturated soil and efficient Rayleigh wave propagation.',
+      'Investigated elevated low-frequency vibration levels driven by water-saturated soil causing efficient Rayleigh wave propagation.',
       'Predicted minimal attenuation through the structure, then supported LS-DYNA dynamic modelling and validation against soil and on-slab measurements.',
-      'Designed a recessed-slab isolator system with a 0.8 Hz natural frequency to provide significant reduction at the MRI location.',
+      'Supported design of a recessed-slab isolator system with a 0.8 Hz natural frequency to provide significant reduction at the MRI location.',
       'Analyzed settling time and rocking modes so the isolation system would not create comfort or usability issues for staff, patients, or equipment users.',
       'Coordinated with technical teams on space requirements, shielding constraints, and integration around the MRI installation.',
     ],
@@ -158,12 +192,12 @@ const resumeItems = [
   {
     period: '2024 - 2026',
     role: 'Acoustics and Vibration Engineer, Aercoustics Engineering',
-    detail: 'Field testing, vibration analysis, Python tools, technical reports, and mitigation strategies for sensitive equipment and building projects.',
+    detail: 'Field testing, vibration analysis, Python tools, technical reports, and mitigation strategies for elevated noise or vibration problems.',
   },
   {
     period: '2023 - 2024',
     role: 'Production Engineering Intern, Paradigm Electronics',
-    detail: 'Manufacturing troubleshooting, product testing, tooling improvements, and process redesign that improved productivity by over 40%.',
+    detail: 'Manufacturing troubleshooting, product testing, tooling improvements, and process redesign.',
   },
   {
     period: '2019 - 2024',

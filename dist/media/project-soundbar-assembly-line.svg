@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Custom soundbar assembly line design</title>
+  <desc id="desc">A production floor layout with workstations, racking, fixtures, and part flow for soundbar assembly.</desc>
+  <rect width="1200" height="900" fill="#FAF8F6"/>
+  <rect x="95" y="100" width="1010" height="650" rx="8" fill="#fff" stroke="#eadfdc" stroke-width="8"/>
+  <g fill="#EFF5EA" stroke="#93A889" stroke-width="6">
+    <rect x="175" y="315" width="190" height="120" rx="8"/>
+    <rect x="430" y="315" width="190" height="120" rx="8"/>
+    <rect x="685" y="315" width="190" height="120" rx="8"/>
+    <rect x="430" y="535" width="445" height="88" rx="8"/>
+  </g>
+  <g fill="#F6D4DD" stroke="#D97998" stroke-width="6">
+    <rect x="180" y="535" width="150" height="88" rx="8"/>
+    <rect x="925" y="300" width="85" height="340" rx="8"/>
+  </g>
+  <g fill="none" stroke="#2C2C31" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M265 455 H520 H780"/>
+    <path d="M780 455 V535"/>
+    <path d="M520 455 V535"/>
+  </g>
+  <g fill="#D97998">
+    <path d="M803 455 l-38 -22 v44 z"/>
+    <path d="M780 558 l-22 -38 h44 z"/>
+    <path d="M520 558 l-22 -38 h44 z"/>
+  </g>
+  <g fill="#2C2C31">
+    <rect x="210" y="358" width="120" height="22" rx="4"/>
+    <rect x="465" y="358" width="120" height="22" rx="4"/>
+    <rect x="720" y="358" width="120" height="22" rx="4"/>
+    <rect x="490" y="568" width="325" height="20" rx="4"/>
+  </g>
+  <g font-family="Inter, Aptos, Segoe UI, sans-serif" font-weight="700">
+    <text x="155" y="195" fill="#2C2C31" font-size="52">Assembly Line Design</text>
+    <text x="158" y="245" fill="#6B7280" font-size="30">Workflow, fixtures, tools, racking, and launch support</text>
+    <text x="195" y="665" fill="#D97998" font-size="28">jigs</text>
+    <text x="925" y="675" fill="#D97998" font-size="28">racking</text>
+  </g>
+</svg>
