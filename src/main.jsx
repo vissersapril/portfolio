@@ -24,16 +24,17 @@ const basePath = import.meta.env.BASE_URL
 const resumeUrl = `${basePath}resume.pdf`
 const linkedInUrl = 'https://www.linkedin.com/in/april-vissers-849a56207'
 const projectPath = (id) => `#/projects/${id}`
+const sectionPath = (id) => `${basePath}#${id}`
 const projectImageClass = (project, spacing = '') =>
   `${spacing}aspect-[4/3] w-full rounded-md ${project.imageFit === 'contain' ? 'bg-mist object-contain p-2' : 'object-cover'}`
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Resume', href: '#resume' },
+  { label: 'Home', href: sectionPath('home') },
+  { label: 'About', href: sectionPath('about') },
+  { label: 'Projects', href: sectionPath('projects') },
+  { label: 'Resume', href: sectionPath('resume') },
   { label: 'Interests', href: `${basePath}interests/` },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: sectionPath('contact') },
 ]
 
 const capabilities = [
@@ -226,7 +227,7 @@ function ProjectPage({ project }) {
     <main className="pt-16">
       <section className="bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14">
-          <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#projects">
+          <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href={sectionPath('projects')}>
             <ArrowLeft size={16} aria-hidden="true" />
             Back to projects
           </a>
@@ -301,7 +302,7 @@ function ProjectPage({ project }) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber">Outcome</p>
               <p className="mt-3 text-sm leading-7 text-white/78">{project.outcome}</p>
             </article>
-            <a className="inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-ink" href="#contact">
+            <a className="inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-ink" href={sectionPath('contact')}>
               Ask about this project
               <MoveRight size={16} aria-hidden="true" />
             </a>
@@ -328,11 +329,21 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
+  React.useEffect(() => {
+    if (selectedProject) return
+    const sectionId = window.location.hash.replace('#', '')
+    if (!sectionId || sectionId.startsWith('/')) return
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView()
+    })
+  }, [selectedProject])
+
   return (
     <div className="min-h-screen bg-mist text-ink antialiased">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-white/88 backdrop-blur-xl">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#home" className="text-sm font-semibold text-signal transition hover:text-ink" onClick={closeMenu} aria-label="Home">
+          <a href={sectionPath('home')} className="text-sm font-semibold text-signal transition hover:text-ink" onClick={closeMenu} aria-label="Home">
             April Vissers
           </a>
 
@@ -401,7 +412,7 @@ function App() {
                 I work across vibration, acoustics, robotics, and hardware builds, turning analysis into tested systems.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-signal" href="#projects">
+                <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-signal" href={sectionPath('projects')}>
                   View projects
                   <ArrowRight size={17} aria-hidden="true" />
                 </a>
@@ -459,7 +470,7 @@ function App() {
                 <p className="eyebrow">Projects</p>
                 <h2 className="section-title max-w-3xl">Selected acoustics, vibration, robotics, and mechanical design projects.</h2>
               </div>
-              <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href="#contact">
+              <a className="inline-flex items-center gap-2 text-sm font-semibold text-signal transition hover:text-ink" href={sectionPath('contact')}>
                 Discuss a project
                 <MoveRight size={16} aria-hidden="true" />
               </a>
