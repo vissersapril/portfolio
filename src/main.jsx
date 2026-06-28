@@ -120,7 +120,8 @@ const projects = [
     id: 'collaborative-robot-buffing-cell',
     title: 'Collaborative Robot Buffing Cell',
     area: 'Manufacturing Automation',
-    image: 'media/project-cobot-buffing-cell.svg',
+    image: 'media/project-cobot-buffing-cell.jpg',
+    imagePosition: '48% 48%',
     summary:
       'Collaborative robot workcell implementation for automating a cabinet buffing process in speaker manufacturing.',
     metrics: ['Cobot integration', 'Fixture planning', 'Process validation'],
@@ -137,7 +138,8 @@ const projects = [
     id: 'custom-soundbar-assembly-line',
     title: 'Custom Soundbar Assembly Line Design',
     area: 'Production System Design',
-    image: 'media/project-soundbar-assembly-line.svg',
+    image: 'media/project-soundbar-assembly-line.jpg',
+    imagePosition: '52% 52%',
     summary:
       'Production layout and assembly process design for a made-to-order soundbar product launch.',
     metrics: ['Floor layout', 'Assembly fixtures', 'Work instructions'],
