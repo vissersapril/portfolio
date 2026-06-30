@@ -21,7 +21,7 @@ import {
 import './styles.css'
 
 const basePath = import.meta.env.BASE_URL
-const resumeUrl = `${basePath}resume.pdf`
+const resumeUrl = `${basePath}April Vissers - Resume.pdf`
 const linkedInUrl = 'https://www.linkedin.com/in/april-vissers-849a56207'
 const projectPath = (id) => `#/projects/${id}`
 const sectionPath = (id) => `${basePath}#${id}`
@@ -38,9 +38,9 @@ const navItems = [
 ]
 
 const capabilities = [
+  { icon: BrainCircuit, label: 'Noise and Vibration analysis', detail: 'Field data, signal processing, and Python tooling.' },
+  { icon: Wrench, label: 'Manufacturing', detail: 'Fixtures, prototypes, troubleshooting, and documentation.' },
   { icon: Bot, label: 'Robotics', detail: 'FANUC, PLCs, ESP32, CAN bus, and I2C.' },
-  { icon: BrainCircuit, label: 'Vibration analysis', detail: 'Field data, signal processing, and Python tooling.' },
-  { icon: Wrench, label: 'Builds', detail: 'Fixtures, prototypes, troubleshooting, and documentation.' },
 ]
 
 const projects = [
@@ -59,10 +59,53 @@ const projects = [
     ],
     video: {
       title: 'Automated Robotics Construction Cell video',
-      embedUrl: 'https://www.youtube.com/embed/YPM7E_tSKgI?autoplay=1&mute=1&loop=1&playlist=YPM7E_tSKgI&playsinline=1&rel=0',
+      embedUrl: 'https://www.youtube.com/embed/SXRrbNrCMVc?autoplay=1&mute=1&loop=1&playlist=SXRrbNrCMVc&playsinline=1&rel=0',
     },
     outcome:
       'A repeatable workcell concept combining tooling, controls, and process planning.',
+  },
+  {
+    id: 'hospital-mri-vibration-investigation',
+    title: 'New Hospital MRI Vibration Investigation',
+    area: 'Sensitive Equipment Isolation',
+    image: 'media/project-mri-vibration.jpg',
+    summary:
+      'Low-frequency vibration investigation and isolation concept for an MRI suite affected by elevated low-frequency vibration levels.',
+    metrics: ['Low frequency vibration', 'LS-DYNA modelling', 'Spring isolators'],
+    details: [
+      'Investigated elevated low-frequency vibration levels driven by water-saturated soil.',
+      'Predicted minimal attenuation through the structure supported by LS-DYNA dynamic modelling and validation against measurements.',
+      'Supported design of a recessed-slab isolator system with a 0.8 Hz natural frequency.',
+      'Analyzed settling time and rocking modes to prevent usability issues for staff, patients, or equipment users.',
+      'Coordinated with technical teams on space requirements, shielding constraints, and integration around the MRI installation.',
+      'Presented in front of industry experts at the Canadian Acoustical Association conference.',
+    ],
+    gallery: [
+      {
+        src: 'media/CAA presentation.jpeg',
+        alt: 'April Presenting at CAA Conference',
+      },
+    ],
+    outcome:
+      'Delivered a practical vibration isolation strategy for sensitive imaging equipment in a challenging soil-structure environment.',
+  },
+  {
+    id: 'custom-soundbar-assembly-line',
+    title: 'Custom Soundbar Assembly Line Design',
+    area: 'Production System Design',
+    image: 'media/project-soundbar-assembly-line.jpg',
+    imagePosition: '52% 52%',
+    summary:
+      'Production layout and assembly process design for a made-to-order soundbar product launch.',
+    metrics: ['Equipment Procurement', 'Assembly fixtures', 'Work instructions'],
+    details: [
+      'Designed the production floor plan and workflow for a new bespoke soundbar product with tight launch timing.',
+      'Procured tools, racking, planned workspaces, and part flow while coordinating with design, assembly, maintenance, and management teams.',
+      'Supported pre-production runs by documenting assembly steps and identifying design for assembly improvements.',
+      'Created supporting processes and tooling concepts, including machined-part cleaning, MDF grill routing jigs, and fixtures for accurate grill and end-cap installation.',
+    ],
+    outcome:
+      'Developed a successful assembly process for a new product launch, connecting design with production ready tooling and documentation.',
   },
   {
     id: 'autonomous-collection-robot',
@@ -71,14 +114,14 @@ const projects = [
     image: 'media/project-autonomous-car.jpg',
     summary:
       'Autonomous robot with embedded controls, sensors, and custom fabricated parts.',
-    metrics: ['1st place', 'ESP32', 'SolidWorks'],
+    metrics: ['Design to assembly', 'ESP32', 'SolidWorks'],
     details: [
-      'Built ESP32 control software for autonomous collection.',
-      'Integrated sensors and actuators over CAN bus and I2C.',
+      'Built ESP32 control software for autonomous collection and driving.',
+      'Integrated sensors and actuators over CAN bus and I2C for item proximity and sorting.',
       'Fabricated custom parts with CAD, 3D printing, and laser cutting.',
     ],
     outcome:
-      'Earned 1st place after iterative integration, debugging, and testing.',
+      'Earned 1st place for overall design, performance, and simplicity.',
   },
   {
     id: 'vertical-axis-wind-turbine',
@@ -88,11 +131,11 @@ const projects = [
     imagePosition: '58% 68%',
     summary:
       'Vertical axis turbine prototype built from calculations, CAD, fabrication, and testing.',
-    metrics: ['Load analysis', 'CAD modeling', 'Prototype testing'],
+    metrics: ['Project Management', 'CAD modeling', 'Prototype testing'],
     details: [
-      'Completed speed, efficiency, and load calculations.',
-      'Modeled and fabricated prototype components.',
-      'Presented and tested the full proof-of-concept system for industry client.',
+      'Led team in design, prototyping, fabrication and testing of a novel proof of concept wind turbine for industry client.',
+      'performed speed, efficiency and load calculations to support design decisions.',
+      'Procured, modelled and fabricated components, presenting final product in a design showcase.',
     ],
     gallery: [
       {
@@ -101,7 +144,7 @@ const projects = [
       },
     ],
     outcome:
-      'A physical prototype connecting analysis, fabrication, and presentation.',
+      'A physical proof of concept prototype involving engineering analysis, design, fabrication, and presentation.',
   },
   {
     id: 'vancouver-theatre-vibrations',
@@ -110,10 +153,10 @@ const projects = [
     image: 'media/project-theatre-vibration.jpg',
     summary:
       'Balcony vibration investigation after complaints of perceptible movement during a live concert.',
-    metrics: ['Natural frequency', 'Event correlation', 'TMD concept'],
+    metrics: ['Natural frequency', 'Rhytmic activity', 'TMD concept'],
     details: [
       'Measured and assessed the balcony response to determine the natural frequency of the structure.',
-      'Compared the measured frequency with the tempo range of the concert set list and found it aligned with the beat of several popular songs from the event.',
+      'Compared the measured frequency with the beat of the concert set list and found it aligned with several popular songs from the event.',
       'Prepared preliminary tuned mass damper recommendations to reduce perceptible response during rhythmic crowd and music excitation.',
     ],
     outcome:
@@ -131,30 +174,11 @@ const projects = [
     metrics: ['Cobot integration', 'Fixture planning', 'Process validation'],
     details: [
       'Supported procurement and installation of a collaborative robot used to automate cabinet buffing operations.',
-      'Coordinated project files, progress tracking, weekly updates, and deadline follow-up across production, maintenance, and external teams.',
       'Contributed to layout planning, robot and cabinet fixture concepts, worker process flow, part movement, and safety considerations.',
       'Helped organize robot installation, setup, programming support, and validation of the planned buffing process after arrival.',
     ],
     outcome:
       'Helped bring one of the company’s early automation workcells into operation while balancing productivity, quality, safety, and worker adoption concerns.',
-  },
-  {
-    id: 'custom-soundbar-assembly-line',
-    title: 'Custom Soundbar Assembly Line Design',
-    area: 'Production System Design',
-    image: 'media/project-soundbar-assembly-line.jpg',
-    imagePosition: '52% 52%',
-    summary:
-      'Production layout and assembly process design for a made-to-order soundbar product launch.',
-    metrics: ['Floor layout', 'Assembly fixtures', 'Work instructions'],
-    details: [
-      'Designed the production floor plan and workflow for a new bespoke soundbar product with tight launch timing.',
-      'Planned tools, racking, workspaces, and part flow while coordinating with design, assembly, maintenance, and management teams.',
-      'Supported pre-production runs by documenting assembly steps and identifying design-for-assembly improvements.',
-      'Created supporting processes and tooling concepts, including machined-part cleaning, MDF grill routing jigs, and fixtures for accurate grill and end-cap installation.',
-    ],
-    outcome:
-      'Established a practical assembly process for a new product launch, connecting design intent with production-ready tooling, documentation, and workflow.',
   },
   {
     id: 'theatre-acoustic-reflector-design',
@@ -168,29 +192,11 @@ const projects = [
     details: [
       'Built and adjusted 3D theatre models to study how reflector and diffuser geometry directed acoustic energy across audience areas.',
       'Used image-source reflection mapping to evaluate timing, coverage, and reflection paths, then tuned geometric parameters to improve useful early energy.',
-      'Wrote scripts to test reflector angles and identify configurations that sent sound toward target seating zones within the desired timing window.',
+      'Wrote scripts to test reflector angles and optimize reflection angle and timing.',
       'Contributed modelling and analysis support for new Kamloops Performing Arts Centre work and University of Alberta Convocation Hall renovation studies.',
     ],
     outcome:
       'Translated acoustic design goals into modelled geometry choices, helping performance spaces balance clarity, coverage, and architectural constraints.',
-  },
-  {
-    id: 'hospital-mri-vibration-investigation',
-    title: 'New Hospital MRI Vibration Investigation',
-    area: 'Sensitive Equipment Isolation',
-    image: 'media/project-mri-vibration.jpg',
-    summary:
-      'Low-frequency vibration investigation and isolation concept for an MRI suite affected by elevated low-frequency vibration levels.',
-    metrics: ['Low frequency vibration', 'LS-DYNA modelling', 'Spring isolators'],
-    details: [
-      'Investigated elevated low-frequency vibration levels driven by water-saturated soil causing efficient Rayleigh wave propagation.',
-      'Predicted minimal attenuation through the structure, then supported LS-DYNA dynamic modelling and validation against soil and on-slab measurements.',
-      'Supported design of a recessed-slab isolator system with a 0.8 Hz natural frequency to provide significant reduction at the MRI location.',
-      'Analyzed settling time and rocking modes so the isolation system would not create comfort or usability issues for staff, patients, or equipment users.',
-      'Coordinated with technical teams on space requirements, shielding constraints, and integration around the MRI installation.',
-    ],
-    outcome:
-      'Delivered a practical vibration isolation strategy for sensitive imaging equipment in a challenging soil-structure environment.',
   },
 ]
 
@@ -203,7 +209,7 @@ const resumeItems = [
   {
     period: '2023 - 2024',
     role: 'Production Engineering Intern, Paradigm Electronics',
-    detail: 'Manufacturing troubleshooting, product testing, tooling improvements, and process redesign.',
+    detail: 'Manufacturing troubleshooting, product testing, tooling improvements, and process design.',
   },
   {
     period: '2019 - 2024',
@@ -212,7 +218,7 @@ const resumeItems = [
   },
   {
     period: 'Core Toolkit',
-    role: 'Engineering Stack',
+    role: 'Engineering Skills',
     detail: 'SolidWorks, Onshape, Python, Java, RSLogix 5000, PLCs, signal processing, vibration analysis, prototyping, and root-cause analysis.',
   },
 ]
@@ -440,14 +446,14 @@ function App() {
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <p className="eyebrow">About</p>
-                <h2 className="section-title">Engineer with a strong blend of analysis, prototyping, and real-world testing.</h2>
+                <h2 className="section-title">Engineer with a strong skillset in technical project management, analysis, prototyping, and real-world testing.</h2>
               </div>
               <div className="space-y-6 text-base leading-8 text-steel">
                 <p>
-                  I am a mechanical engineering graduate with experience in field testing, vibration analysis, manufacturing, and hands-on robotics.
+                  I am a mechanical engineering graduate from the University of Western Ontario. I have experience in mechanical design, testing, vibration analysis, manufacturing, and hands-on robotics.
                 </p>
                 <p>
-                  I like work that mixes analysis with real hardware: sensors, fixtures, CAD, controls, prototypes, and clean technical communication.
+                  I like work that requires technical expertise, problem solving, and strong technical communication.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {capabilities.map(({ icon: Icon, label, detail }) => (
